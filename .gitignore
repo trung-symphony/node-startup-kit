@@ -1,0 +1,11 @@
+.DS_Store
+node_modules/
+*.log
+*.xlsx
+coverage/
+.env
+dist
+log.txt
+/*.csv
+npm-debug.log
+db/database.sqlite

@@ -1,0 +1,95 @@
+{
+  "name": "hapi-bulk-portal",
+  "version": "1.0.0",
+  "engines": {
+    "node": "6.9.1"
+  },
+  "description": "Node Template",
+  "main": "app.js",
+  "author": "Trung Nguyen",
+  "license": "MIT",
+  "dependencies": {
+    "async": "latest",
+    "babel": "latest",
+    "dotenv": "latest",
+    "joi": "latest",
+    "ramda": "^0.23.0",
+    "superagent": "latest",
+    "superagent-promise": "latest"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.21.0",
+    "babel-eslint": "latest",
+    "babel-jest": "latest",
+    "babel-loader": "latest",
+    "babel-plugin-syntax-flow": "latest",
+    "babel-plugin-transform-async-to-generator": "latest",
+    "babel-plugin-transform-flow-strip-types": "latest",
+    "babel-polyfill": "^6.20.0",
+    "babel-preset-es2015": "latest",
+    "babel-preset-es2016": "latest",
+    "babel-preset-flow": "latest",
+    "babel-preset-latest": "^6.22.0",
+    "babel-preset-stage-2": "latest",
+    "eslint": "latest",
+    "eslint-config-airbnb-base": "latest",
+    "flow-bin": "^0.40.0",
+    "jest": "latest",
+    "nodemon": "^1.11.0",
+    "supertest": "latest"
+  },
+  "jest": {
+    "verbose": true,
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "server/**/*.js",
+      "service/**/*.js",
+      "utils/*.js",
+      "shared/*.js",
+      "browser/js/*.js",
+      "!browser/js/shame.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "shame",
+      "mock-tasks",
+      "service/index.js",
+      "server/index.js",
+      "build",
+      "dist"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 85,
+        "functions": 85,
+        "lines": 85,
+        "statements": 85
+      }
+    },
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/nock"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/shame",
+      "<rootDir>/build",
+      "<rootDir>/dist"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/shame",
+      "<rootDir>/build",
+      "<rootDir>/dist"
+    ]
+  },
+  "scripts": {
+    "start": "babel-node build/lib/main",
+    "typecheck": "flow check",
+    "babel-node": "babel-node",
+    "clean": "rm -rf yarn.lock node_modules dist build && yarn cache clean",
+    "dev": "babel-node lib/main",
+    "dev:watch": "nodemon --exec npm run babel-node -- lib/main",
+    "build": "babel-node scripts/build.js",
+    "test": "./node_modules/.bin/jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint ."
+  }
+}
